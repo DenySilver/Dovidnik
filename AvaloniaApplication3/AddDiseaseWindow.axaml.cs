@@ -23,14 +23,14 @@ public partial class AddDiseaseWindow : Window
         string description = DescriptionBox.Text?.Trim() ?? "";
         string symptomsRaw = SymptomsBox.Text?.Trim() ?? "";
         string medsRaw = MedicationsBox.Text?.Trim() ?? "";
-        
+        //перевірка на пусті поля
         if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(symptomsRaw) || 
             string.IsNullOrWhiteSpace(medsRaw))
         {
             ErrorText.Text = "Будь ласка, заповніть усі поля.";
             return;
         }
-
+        //перевірка на вже існуючу хворобу в бд
         if (DiseaseView.db.StrongSearchByName(name).Any())
         {
             ErrorText.Text = "Хвороба з такою назвою вже є.";
