@@ -9,7 +9,7 @@ using Avalonia.Markup.Xaml;
 
 namespace AvaloniaApplication3;
 
-public partial class HistoryView : UserControl
+public partial class HistoryView : UserControl //ну тут все те саме що в DiseaseView
 {
 
     public static HistoryDataBase db = new HistoryDataBase();
