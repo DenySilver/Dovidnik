@@ -18,7 +18,7 @@ public partial class SelectHistoryWindow : Window
 
     private void OnConfirmClick(object? sender, RoutedEventArgs e)
     {
-        SelectedHistory = HistoryBox.SelectedItem as History;
+        SelectedHistory = HistoryBox.SelectedItem as History; //обране зі списку зберегти як History і потім повернути це значення
         Close(SelectedHistory);
     }
 }
