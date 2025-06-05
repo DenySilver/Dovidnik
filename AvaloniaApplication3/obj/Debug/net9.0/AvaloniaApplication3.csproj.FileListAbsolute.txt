@@ -64,3 +64,4 @@
 /home/denys/RiderProjects/AvaloniaApplication3/AvaloniaApplication3/obj/Debug/net9.0/Avalonia.EC7B75D9.Up2Date
 /home/denys/RiderProjects/AvaloniaApplication3/AvaloniaApplication3/obj/Debug/net9.0/AvaloniaApplication3.genruntimeconfig.cache
 /home/denys/RiderProjects/AvaloniaApplication3/AvaloniaApplication3/obj/Debug/net9.0/ref/AvaloniaApplication3.dll
+/home/denys/RiderProjects/AvaloniaApplication3/AvaloniaApplication3/obj/Debug/net9.0/AvaloniaApplication3.sourcelink.json

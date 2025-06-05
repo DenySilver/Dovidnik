@@ -226,3 +226,4 @@
 /home/denys/RiderProjects/AvaloniaApplication3/AvaloniaApplication3/bin/Release/net9.0/linux-x64/libhostpolicy.so
 /home/denys/RiderProjects/AvaloniaApplication3/AvaloniaApplication3/bin/Release/net9.0/linux-x64/libmscordaccore.so
 /home/denys/RiderProjects/AvaloniaApplication3/AvaloniaApplication3/bin/Release/net9.0/linux-x64/libmscordbi.so
+/home/denys/RiderProjects/AvaloniaApplication3/AvaloniaApplication3/obj/Release/net9.0/linux-x64/AvaloniaApplication3.sourcelink.json

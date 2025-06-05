@@ -12,9 +12,9 @@ namespace AvaloniaApplication3;
 public class Disease //клас хвороби
 {
     public string Name { get; set; }
-    public string Description { get; }
-    public List<string> Symptoms { get; }
-    public List<string> Medications { get; }
+    public string Description { get; set; }
+    public List<string> Symptoms { get; set; }
+    public List<string> Medications { get; set; }
 
     public string SymptomsString => $"Симптоми: {string.Join(", ", Symptoms)}";
 
@@ -83,8 +83,8 @@ public class DataBase //бд
 //===================================================
 public class HistoryRecord //запис в історії
 {
-    public Disease Disease { get;}
-    public DateTime Date { get;}
+    public Disease Disease { get; set; }
+    public DateTime Date { get; set; }
     
     public HistoryRecord() {}
     public HistoryRecord(Disease dis, DateTime date)
@@ -97,10 +97,10 @@ public class HistoryRecord //запис в історії
 public class History //історія
 {
     public string FullName { get; set; }
-    public double Age { get;}
-    public double Height { get;}
-    public double Weight { get;}
-    public List<HistoryRecord> Records { get; } = new();
+    public double Age { get; set; }
+    public double Height { get; set; }
+    public double Weight { get; set; }
+    public List<HistoryRecord> Records { get; set; } = new();
 
     public History(string fullName, double age, double height, double weight)
     {
