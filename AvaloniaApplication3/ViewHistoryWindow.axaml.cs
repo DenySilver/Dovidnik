@@ -20,7 +20,7 @@ public partial class ViewHistoryWindow : Window
         DisplayRecords(originalRecords);
     }
 
-    private void OnSearchClick(object? sender, RoutedEventArgs e)
+    private void OnSearchClick(object? sender, RoutedEventArgs e) //шукаю за назвою та за датою 
     {
         string input = SearchBox.Text?.Trim() ?? "";
 
@@ -33,15 +33,15 @@ public partial class ViewHistoryWindow : Window
 
     private void DisplayRecords(List<HistoryRecord> records)
     {
-        ResultsPanel.Children.Clear();
+        ResultsPanel.Children.Clear(); //стирання результатів
 
-        var grouped = records
+        var grouped = records   //групування результатів за датою
             .GroupBy(r => r.Date.Date)
             .OrderByDescending(g => g.Key);
 
-        foreach (var group in grouped)
+        foreach (var group in grouped) //друкування кожної групи
         {
-            var dateHeader = new TextBlock
+            var dateHeader = new TextBlock //друкування дати
             {
                 Text = group.Key.ToString("dd.MM.yyyy"),
                 FontWeight = Avalonia.Media.FontWeight.Bold,
@@ -49,11 +49,11 @@ public partial class ViewHistoryWindow : Window
             };
             ResultsPanel.Children.Add(dateHeader);
 
-            foreach (var record in group)
+            foreach (var record in group) //друкування кожної хвороби з цією датою
             {
                 ResultsPanel.Children.Add(new TextBlock
                 {
-                    Text = $"- {record.Disease?.Name ?? "[невідомо]"}",
+                    Text = $"- {record.Disease?.Name ?? "[невідомо]"}", //щоб запобігти неочікуваному null exception
                     Margin = new Thickness(10, 2, 0, 2)
                 });
             }
@@ -62,8 +62,8 @@ public partial class ViewHistoryWindow : Window
     
     private async void OnExportClick(object? sender, RoutedEventArgs e)
     {
-        string fileName = $"{_history.FullName}.txt".Replace(" ", "_");
-        var lines = new List<string>
+        string fileName = $"{_history.FullName}.txt".Replace(" ", "_"); //створення файлу ПІБ.txt
+        var lines = new List<string> //строки з інформацією про пацієнта
         {
             $"Інформація про пацієнта:",
             $"ПІБ: {_history.FullName}",
@@ -74,7 +74,7 @@ public partial class ViewHistoryWindow : Window
             "Історія хвороб:"
         };
 
-        var grouped = _history.Records
+        var grouped = _history.Records 
             .GroupBy(r => r.Date.Date)
             .OrderByDescending(g => g.Key);
 
@@ -85,13 +85,11 @@ public partial class ViewHistoryWindow : Window
             {
                 lines.Add($" - {record.Disease?.Name ?? "[Невідоме захворювання]"}");
             }
-            lines.Add(""); // порожній рядок між групами
+            lines.Add(""); 
         }
 
-        // зберігаємо у файл
-        await File.WriteAllLinesAsync(fileName, lines);
+        await File.WriteAllLinesAsync(fileName, lines); //збереження в файл
 
-        // сповіщення
         var window = new Window
         {
             Title = "Експорт завершено",
