@@ -9,7 +9,7 @@ using System.Text.Json.Serialization;
 
 namespace AvaloniaApplication3;
 
-public class Disease
+public class Disease //клас хвороби
 {
     public string Name { get; set; }
     public string Description { get; }
@@ -29,29 +29,29 @@ public class Disease
     }
 }
 
-public class DataBase
+public class DataBase //бд
 {
     public List<Disease> Diseases { get; set; } = new();
 
-    private void Save(string path)
+    private void Save(string path) //зберігання в файл
     {
         var jsonD = JsonSerializer.Serialize(Diseases);
         File.WriteAllText(path, jsonD);
     }
 
-    public void Load(string path)
+    public void Load(string path) //завантаження з файлу
     {
         var lines = File.ReadAllText(path);
         Diseases = JsonSerializer.Deserialize<List<Disease>>(lines, new JsonSerializerOptions
         { PropertyNameCaseInsensitive = true, IgnoreReadOnlyProperties = true});
     }
 
-    public List<Disease> StrongSearchByName(string name)
+    public List<Disease> StrongSearchByName(string name) //повертає список хвороб, де ім'я ідентичне введеному
     {
         return Diseases.Where(d => d.Name.Equals(name)).ToList();
     }
 
-    public List<Disease> Search(string input)
+    public List<Disease> Search(string input) //повертає список хвороб, де ім'я, симптоми і медикаменти схожі 
     {
         var keywords = input.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
@@ -64,13 +64,13 @@ public class DataBase
     }
 
 
-    public void AddDisease(Disease disease)
+    public void AddDisease(Disease disease) //додавання в бд і одразу зберігання
     {
         Diseases.Add(disease);
         this.Save("saveD.json");
     }
 
-    public void RemoveDisease(string name)
+    public void RemoveDisease(string name) //видалення з бд і одразу зберігання
     {
         var diseaseToRemove = Diseases.FirstOrDefault(d => d.Name.Equals(name));
         if (diseaseToRemove != null)
@@ -81,7 +81,7 @@ public class DataBase
     }
 }
 //===================================================
-public class HistoryRecord
+public class HistoryRecord //запис в історії
 {
     public Disease Disease { get;}
     public DateTime Date { get;}
@@ -94,7 +94,7 @@ public class HistoryRecord
     }
 }
 
-public class History
+public class History //історія
 {
     public string FullName { get; set; }
     public double Age { get;}
@@ -112,7 +112,7 @@ public class History
     public string Info => $"{FullName} ({Age} років, {Height} см, {Weight} кг)";
 }
 
-public class HistoryDataBase
+public class HistoryDataBase //бд для історій хвороб, функціонал весь як і в DataBase
 {
     public List<History> Histories { get; set; } = new();
     
