@@ -14,7 +14,7 @@ public partial class EditDiseaseWindow : Window
     {
         InitializeComponent();
         Original = disease;
-        
+        //заповнення полів даними
         NameBox.Text = disease.Name;
         DescriptionBox.Text = disease.Description;
         SymptomsBox.Text = string.Join(", ", disease.Symptoms);
