@@ -1,0 +1,26 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication3.EditHistoryWindow"
+        Title="Змінити історію">
+        <StackPanel Margin="10" Spacing="10">
+
+                <TextBlock Text="ФІО:"/>
+                <TextBox x:Name="NameBox"/>
+
+                <TextBlock Text="Вік:"/>
+                <TextBox x:Name="AgeBox"/>
+
+                <TextBlock Text="Зріст:"/>
+                <TextBox x:Name="HeightBox"/>
+
+                <TextBlock Text="Вага:"/>
+                <TextBox x:Name="WeightBox"/>
+
+                <TextBlock x:Name="ErrorText" Foreground="Red" FontWeight="Bold"/>
+
+                <Button Content="Зберегти" Click="OnSaveClick"/>
+        </StackPanel>
+</Window>

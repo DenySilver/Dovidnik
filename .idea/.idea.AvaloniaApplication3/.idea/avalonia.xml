@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="AvaloniaApplication3/AddDisease.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/AddDiseaseWindow.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/AddHistoryWindow.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/App.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/DIseaseView.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/DiseaseView.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/DiseaseWindow.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/EditDiseaseWindow.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/EditHistoryWindow.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/HistoryView.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/MainWindow.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/SelectHistoryWindow.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+        <entry key="AvaloniaApplication3/ViewHistoryWindow.axaml" value="AvaloniaApplication3/AvaloniaApplication3.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

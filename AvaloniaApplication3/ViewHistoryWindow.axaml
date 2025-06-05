@@ -1,0 +1,18 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaApplication3.ViewHistoryWindow"
+        Width="500" Height="600"
+        Title="Перегляд історії пацієнта">
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+            <TextBox x:Name="SearchBox" Width="300" Watermark="Пошук хвороб або дати"/>
+            <Button Content="Знайти" Margin="10,0,0,0" Click="OnSearchClick"/>
+            <Button Content="Експорт в TXT" Margin="10,0,0,0" Click="OnExportClick"/>
+        </StackPanel>
+
+        <ScrollViewer Height="500">
+            <StackPanel x:Name="ResultsPanel"/>
+        </ScrollViewer>
+    </StackPanel>
+</Window>
+

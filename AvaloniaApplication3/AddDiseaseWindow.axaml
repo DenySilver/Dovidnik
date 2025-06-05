@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaApplication3.AddDiseaseWindow"
+        Title="Додати хворобу" Width="500" Height="400">
+    <Border Padding="10">
+        <StackPanel Margin="10" Spacing="8">
+            <TextBlock Text="Введіть назву хвороби:" Name="NameBlock" />
+            <TextBox x:Name="NameBox" Watermark="Назва хвороби"/>
+            <TextBlock Text="Введіть опис хвороби:" Name="DescriptionBlock" />
+            <TextBox x:Name="DescriptionBox" Watermark="Опис"/>
+            <TextBlock Text="Введіть симптоми через кому (приклад: кашель, лихоманка):" Name="SymptomsBlock" />
+            <TextBox x:Name="SymptomsBox" Watermark="Симптоми"/>
+            <TextBlock Text="Введіть ліки через кому:" Name="MedBlock" />
+            <TextBox x:Name="MedicationsBox" Watermark="Ліки"/>
+            <TextBlock Name="ErrorText" Foreground="Red" FontWeight="Bold"/>
+            <Button Content="Додати" Click="OnAddClick"/>
+        </StackPanel>
+    </Border>
+</Window>

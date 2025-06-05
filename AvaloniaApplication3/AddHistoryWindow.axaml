@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication3.AddHistoryWindow"
+        Title="Додати історію">
+        <Border Padding="10">
+                <StackPanel Margin="10" Spacing="8">
+                        <TextBlock Text="Введіть ПІБ пацієнта через пробіл:" Name="NameBlock" />
+                        <TextBox x:Name="NameBox" Watermark="ПІБ"/>
+                        <TextBlock Text="Введіть вік:" Name="AgeBlock" />
+                        <TextBox x:Name="AgeBox" Watermark="Вік"/>
+                        <TextBlock Text="Введіть зріст:" Name="HeightBlock" />
+                        <TextBox x:Name="HeightBox" Watermark="Зріст"/>
+                        <TextBlock Text="Введіть вагу:" Name="WeightBlock" />
+                        <TextBox x:Name="WeightBox" Watermark="Вага"/>
+                        <TextBlock Name="ErrorText" Foreground="Red" FontWeight="Bold"/>
+                        <Button Content="Додати" Click="OnAddClick"/>
+                </StackPanel>
+        </Border>
+</Window>

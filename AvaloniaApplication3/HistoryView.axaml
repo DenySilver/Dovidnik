@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:AvaloniaApplication3"
+             x:Class="AvaloniaApplication3.HistoryView"
+             x:DataType="vm:HistoryView">
+    <DockPanel LastChildFill="True">
+                <DockPanel DockPanel.Dock="Top">
+                    <TextBox Width="300" Watermark="Пошук..." Margin="10,10,10,0" Name="SearchBox"/>
+                    <Button Content="Знайти" Click="OnSearch" Margin="0, 10, 0, 0"/>
+                    <Button Content="+" Click="OnAddHistoryClick" Margin="0, 10, 0, 0"/>
+                </DockPanel>
+                
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="10">
+                    <ItemsControl ItemsSource="{Binding HisList}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="DimGray" BorderThickness="1" Padding="5" Margin="0,10">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Info}" FontWeight="Bold" />
+                                        <StackPanel Orientation="Horizontal" Spacing="5" Margin="0,10,0,0">
+                                            <Button Content="Переглянути" Click="OnViewClick" Name="{Binding FullName}"/>
+                                            <Button Content="Змінити" Click="OnEditHistoryClick" Name="{Binding FullName}"/>
+                                            <Button Content="Видалити" Background="Red" Click="OnDeleteClick" Name="{Binding FullName}"
+                                                    />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </DockPanel>
+</UserControl>
+
