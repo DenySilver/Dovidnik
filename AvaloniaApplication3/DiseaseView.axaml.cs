@@ -14,7 +14,7 @@ public partial class DiseaseView : UserControl
     public DiseaseView()
     {
         InitializeComponent();
-        try
+        try //перевірка наявності файлу
         {
             db.Load("saveD.json"); //завантаження даних
         }
@@ -39,16 +39,16 @@ public partial class DiseaseView : UserControl
     {
         if (sender is Button clickButton)
         {
-            string? name = clickButton.Name;
+            string? name = clickButton.Name; //назва хвороби (ім'я кнопки)
             var disease = db.StrongSearchByName(name).FirstOrDefault();
 
-            if (disease is not null)
+            if (disease is not null) //якщо є хвороба з такою назвою, з'являється вікно
             {
                 var editWindow = new EditDiseaseWindow(disease);
                 var window = this.VisualRoot as Window;
                 var result = await editWindow.ShowDialog<Disease?>(window);
 
-                if (result != null)
+                if (result != null) //якщо є результат, в колекції і в бд замінюється хвороба
                 {
                     db.RemoveDisease(name); 
                     db.AddDisease(result); 
@@ -59,7 +59,7 @@ public partial class DiseaseView : UserControl
             }
         }
     }
-    private void OnDeleteClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    private void OnDeleteClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e) //видалення
     {
         if (sender is Button clickButton)
         {
@@ -71,12 +71,12 @@ public partial class DiseaseView : UserControl
 
     private void OnSearch(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        var input = SearchBox.Text?.Trim() ?? "";
+        var input = SearchBox.Text?.Trim() ?? ""; //якщо є текст в полі вводу, видалення зайвих пробілів, інакше пустий string
         DisList.Clear();
 
         if (input == "")
         {
-            foreach (var d in db.Diseases)
+            foreach (var d in db.Diseases) //просто додаються хвороби з бд
                 DisList.Add(d);
             return;
         }
@@ -84,11 +84,11 @@ public partial class DiseaseView : UserControl
         
         results = db.Search(input);
 
-        foreach (var d in results)
+        foreach (var d in results) //додаються хвороби з пошуку
             DisList.Add(d);
     }
 
-    private void OnDisease(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    private void OnDisease(object? sender, Avalonia.Interactivity.RoutedEventArgs e) //показ інформації хвороби
     {
         if (sender is Button clickButton)
         {
@@ -113,12 +113,12 @@ public partial class DiseaseView : UserControl
             {
                 var selectWindow = new SelectHistoryWindow(HistoryView.db.Histories);
                 var window = this.VisualRoot as Window;
-                var selected = await selectWindow.ShowDialog<History?>(window);
+                var selected = await selectWindow.ShowDialog<History?>(window); //обрана історія хвороби
 
                 if (selected != null)
                 {
-                    selected.Records.Add(new HistoryRecord(disease, DateTime.Now));
-                    HistoryView.db.Save("saveH.json");
+                    selected.Records.Add(new HistoryRecord(disease, DateTime.Now)); //додається новий запис
+                    HistoryView.db.Save("saveH.json"); //зберігання
                 }
             }
         }
